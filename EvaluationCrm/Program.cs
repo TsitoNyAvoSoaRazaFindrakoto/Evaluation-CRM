@@ -22,12 +22,13 @@ builder.Services.AddSession(options =>
 // injection de dependance
 builder.Services.AddScoped<RoleService>();
 builder.Services.AddScoped<RoleRepository>();
-builder.Services.AddTransient<ParameterService>();
+builder.Services.AddScoped<ParameterService>();
 builder.Services.AddScoped<TicketService>();
 builder.Services.AddScoped<LeadService>();
 builder.Services.AddScoped<ExpenseService>();
 builder.Services.AddScoped<BudgetService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<DashboardService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
