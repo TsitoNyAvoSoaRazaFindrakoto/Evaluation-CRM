@@ -82,12 +82,23 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Budget par Client</h5>
                     <div class="chart-container">
                         <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ratio Tickets/Leads</h5>
+                    <div class="chart-container">
+                        <canvas id="ratioChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -158,6 +169,7 @@
         const ticketData = @Json.Serialize(Model.TicketExpensesByCustomer) || {};
         const leadData = @Json.Serialize(Model.LeadExpensesByCustomer) || {};
         const budgetData = @Json.Serialize(Model.BudgetByCustomer) || {};
+
 
         // Création des configurations de données avec plusieurs couleurs
         const ticketChartData = hasData(ticketData) ? {
@@ -258,7 +270,28 @@
                         borderColor: 'rgba(255, 159, 64, 1)'
                     },
                     type: 'doughnut'
+                },
+                {
+                    id: 'ratioChart',
+                    data: {
+                        labels: ['Tickets', 'Leads'],
+                        datasets: [{
+                            data: [@Model.TotalTicketExpenses, @Model.TotalLeadExpenses],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.8)', // Bleu pour Tickets
+                                'rgba(75, 192, 192, 0.8)'  // Vert pour Leads
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(75, 192, 192, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    label: 'Répartition des dépenses',
+                    type: 'pie' // ou 'doughnut'
                 }
+
             ];
 
             charts.forEach(chart => {
