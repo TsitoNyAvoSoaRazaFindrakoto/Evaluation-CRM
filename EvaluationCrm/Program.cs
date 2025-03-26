@@ -1,6 +1,4 @@
 using EvaluationCrm.Data;
-using EvaluationCrm.Models.entity;
-using EvaluationCrm.repository;
 using EvaluationCrm.service;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,16 +16,13 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-
-// injection de dependance
-builder.Services.AddScoped<RoleService>();
-builder.Services.AddScoped<RoleRepository>();
-builder.Services.AddTransient<ParameterService>();
+builder.Services.AddScoped<ParameterService>();
 builder.Services.AddScoped<TicketService>();
 builder.Services.AddScoped<LeadService>();
 builder.Services.AddScoped<ExpenseService>();
 builder.Services.AddScoped<BudgetService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<DashboardService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
