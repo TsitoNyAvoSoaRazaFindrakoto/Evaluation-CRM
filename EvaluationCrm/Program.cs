@@ -16,7 +16,6 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-
 builder.Services.AddScoped<ParameterService>();
 builder.Services.AddScoped<TicketService>();
 builder.Services.AddScoped<LeadService>();
