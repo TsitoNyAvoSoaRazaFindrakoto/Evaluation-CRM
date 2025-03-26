@@ -1,6 +1,4 @@
 using EvaluationCrm.Data;
-using EvaluationCrm.Models.entity;
-using EvaluationCrm.repository;
 using EvaluationCrm.service;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,9 +17,6 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// injection de dependance
-builder.Services.AddScoped<RoleService>();
-builder.Services.AddScoped<RoleRepository>();
 builder.Services.AddScoped<ParameterService>();
 builder.Services.AddScoped<TicketService>();
 builder.Services.AddScoped<LeadService>();
