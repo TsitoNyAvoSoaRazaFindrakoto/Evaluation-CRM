@@ -4,26 +4,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EvaluationCrm.Controllers
 {
-    public class TicketController : Controller
-    {
-        private readonly TicketService _ticketService;
+	public class TicketController : Controller
+	{
+		private readonly TicketService _ticketService;
 
-        public TicketController(TicketService ticketService)
-        {
-            _ticketService = ticketService;
-        }
-        
-        public IActionResult Index()
-        {
-            List<Ticket>? tickets = _ticketService.GetTickets();
-            return View(tickets);
-        }
+		public TicketController(TicketService ticketService)
+		{
+			_ticketService = ticketService;
+		}
 
-        [HttpGet]
-        public IActionResult Delete(Int16 ticketId)
-        {
-            _ticketService.DeleteTicket(ticketId);
-            return RedirectToAction("Index");
-        }
-    }
+		public IActionResult Index()
+		{
+			List<Ticket>? tickets = _ticketService.GetTickets();
+			return View(tickets);
+		}
+
+		[HttpGet]
+		public IActionResult Delete(Int16 ticketId)
+		{
+			_ticketService.DeleteTicket(ticketId);
+			return RedirectToAction("Index");
+		}
+	}
 }

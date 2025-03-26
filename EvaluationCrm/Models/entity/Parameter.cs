@@ -2,6 +2,6 @@
 
 public class Parameter
 {
-    public string parameterKey { get; set; }
-    public Double parameterValue { get; set; }
+	public string parameterKey { get; set; }
+	public Double parameterValue { get; set; }
 }

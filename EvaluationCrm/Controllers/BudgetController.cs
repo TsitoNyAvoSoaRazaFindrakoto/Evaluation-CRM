@@ -6,16 +6,16 @@ namespace EvaluationCrm.Controllers;
 
 public class BudgetController : Controller
 {
-    private readonly BudgetService _budgetService;
+	private readonly BudgetService _budgetService;
 
-    public BudgetController(BudgetService budgetService)
-    {
-        _budgetService = budgetService;
-    }
+	public BudgetController(BudgetService budgetService)
+	{
+		_budgetService = budgetService;
+	}
 
-    public IActionResult Index()
-    {
-        List<Budget>? budgets = _budgetService.GetBudgets();
-        return View(budgets);
-    }
+	public IActionResult Index()
+	{
+		List<Budget>? budgets = _budgetService.GetBudgets();
+		return View(budgets);
+	}
 }

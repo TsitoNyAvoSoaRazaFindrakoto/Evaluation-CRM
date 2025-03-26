@@ -8,5 +8,5 @@ public class Dashboard
 	public double TotalTicketExpenses { get; set; }
 	public double TotalLeadExpenses { get; set; }
 	public double TotalBudget { get; set; }
-		
+
 }
