@@ -59,7 +59,7 @@
                 <div class="card-body" onclick="window.location.href='@Url.Action("Index", "Ticket")';"
                      style="cursor: pointer;">
                     <h5 class="card-title">Total Dépenses Tickets</h5>
-                    <h2 class="card-text">@Model.TotalTicketExpenses.ToString("C")</h2>
+                    <h2 class="card-text">@Model.TotalTicketExpenses</h2>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <div class="card-body" onclick="window.location.href='@Url.Action("Index", "Lead")';"
                      style="cursor: pointer;">
                     <h5 class="card-title">Total Dépenses Leads</h5>
-                    <h2 class="card-text">@Model.TotalLeadExpenses.ToString("C")</h2>
+                    <h2 class="card-text">@Model.TotalLeadExpenses</h2>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
                 <div class="card-body" onclick="window.location.href='@Url.Action("Index", "Budget")';"
                      style="cursor: pointer;">
                     <h5 class="card-title">Total Budget</h5>
-                    <h2 class="card-text">@Model.TotalBudget.ToString("C")</h2>
+                    <h2 class="card-text">@Model.TotalBudget</h2>
                 </div>
             </div>
         </div>
