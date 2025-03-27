@@ -4,22 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EvaluationCrm.Controllers;
 
-public class DashboardController : Controller
+public class DashboardController(HttpClient httpClient) : Controller
 {
+	
 	// private readonly TicketService _ticketService;
 	// private readonly LeadService _leadService;
 	// private readonly ExpenseService _expenseService;
 	// private readonly BudgetService _budgetService;
-	private readonly DashboardService _dashboardService;
-
-	public DashboardController(DashboardService dashboardService)
-	{
-		_dashboardService = dashboardService;
-	}
 
 	public IActionResult Index()
 	{
-		var viewModel = _dashboardService.getDashboard();
+		var viewModel = httpClient.GetFromJsonAsync<Dashboard>("http://localhost:8080/api/dashboard").Result;
+
 		return View(viewModel);
 	}
 }
